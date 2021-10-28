@@ -754,7 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197424970a8398c49af3a0ee1de64e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aspectName: 0
+  aspectName: 1
 --- !u!1 &1171499107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,6 +1236,7 @@ GameObject:
   - component: {fileID: 1876867370}
   - component: {fileID: 1876867368}
   - component: {fileID: 1876867371}
+  - component: {fileID: 1876867372}
   m_Layer: 0
   m_Name: AI_Character
   m_TagString: Untagged
@@ -1341,6 +1342,18 @@ MonoBehaviour:
   bDebug: 1
   aspectName: 0
   detectionRate: 1
+--- !u!114 &1876867372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876867366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 512c18608b594aa439695f6ec33b3ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1954060881
 GameObject:
   m_ObjectHideFlags: 0
