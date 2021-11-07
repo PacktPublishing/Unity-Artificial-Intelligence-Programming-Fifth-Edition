@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
+using System.Linq;
+using System.Collections.Generic;
 
 public class SlotMachineWeighted : MonoBehaviour {
 	
@@ -23,27 +26,37 @@ public class SlotMachineWeighted : MonoBehaviour {
 	private int betAmount = 100;
     private int credits = 1000;
 
-	private ArrayList weightedReelPoll = new ArrayList();	
-	private int zeroProbability = 50;
+	[Serializable]
+	public struct WeightedProbability {
+		public int number;
+		public int weight;
+	}
+
+    private List<WeightedProbability> weightedReelPoll = new List<WeightedProbability>();
+    private int zeroProbability = 50;
 	
 	private int firstReelResult = 0;
 	private int secondReelResult = 0;
 	private int thirdReelResult = 0;
 	
 	private float elapsedTime = 0.0f;
+
+
 	
 	// Use this for initialization
 	void Start () {
-		for (int i = 0; i < zeroProbability; i++) {
-			weightedReelPoll.Add(0);		
-		}
+		weightedReelPoll.Add(new WeightedProbability {
+			number = 0,
+			weight = zeroProbability
+		});
 		
 		int remainingValuesProb = (100 - zeroProbability)/9;
 		
-		for (int j = 1; j < 10; j++) {
-			for (int k = 0; k < remainingValuesProb; k++) {
-				weightedReelPoll.Add(j);
-			}
+		for (int i = 1; i < 10; i++) {
+			weightedReelPoll.Add(new WeightedProbability {
+				number = i,
+				weight = remainingValuesProb
+			});
 		}
 	}
 
@@ -99,13 +112,13 @@ public class SlotMachineWeighted : MonoBehaviour {
 	void FixedUpdate () {		
 		if (startSpin) {
 			elapsedTime += Time.deltaTime;
-			int randomSpinResult = Random.Range(0, numberOfSym);
+			int randomSpinResult = UnityEngine.Random.Range(0, numberOfSym);
 			if (!firstReelSpinned) {
 				firstReel.text = randomSpinResult.ToString();
 				if (elapsedTime >= spinDuration) {
-					int weightedRandom = Random.Range(0, weightedReelPoll.Count);
-                    firstReel.text = weightedReelPoll[weightedRandom].ToString();
-					firstReelResult = (int)weightedReelPoll[weightedRandom];
+					int weightedRandom = pickNumber();
+                    firstReel.text = weightedRandom.ToString();
+					firstReelResult = weightedRandom;
 					firstReelSpinned = true;
 					elapsedTime = 0;
 				}
@@ -137,9 +150,9 @@ public class SlotMachineWeighted : MonoBehaviour {
 						thirdReelResult = randomSpinResult;
 					}
 					else {
-						int weightedRandom = Random.Range(0, weightedReelPoll.Count);
-                        thirdReel.text = weightedReelPoll[weightedRandom].ToString();
-						thirdReelResult = (int)weightedReelPoll[weightedRandom];
+						int weightedRandom = pickNumber();
+                        thirdReel.text = weightedRandom.ToString();
+						thirdReelResult = weightedRandom;
 					}
 					
 					startSpin = false;
@@ -151,5 +164,22 @@ public class SlotMachineWeighted : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	private int pickNumber() {
+		// Sum the weights of every state.
+		var weightSum = weightedReelPoll.Sum(state => state.weight);
+		var randomNumber = UnityEngine.Random.Range(0, weightSum);
+		var i = 0;
+		while (randomNumber >= 0) {
+			var candidate = weightedReelPoll[i];
+			randomNumber -= candidate.weight;
+			if (randomNumber <= 0) {
+				return candidate.number;
+			}
+			i++;
+		}
+		// It should not be possible to reach this point!
+		throw new Exception("Something is wrong in the selectState algorithm!");
 	}
 }
