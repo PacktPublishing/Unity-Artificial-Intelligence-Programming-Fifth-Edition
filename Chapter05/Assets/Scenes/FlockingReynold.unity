@@ -167,12 +167,24 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: gravity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: minSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginForce
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginRange
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: avoidanceRadius
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
@@ -290,12 +302,24 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: gravity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: minSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginForce
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginRange
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: avoidanceRadius
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
@@ -437,12 +461,24 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: gravity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: minSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginForce
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginRange
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: avoidanceRadius
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
@@ -490,12 +526,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: gravity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: minSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginForce
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginRange
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: avoidanceRadius
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
@@ -543,12 +591,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: gravity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: minSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginForce
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginRange
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: avoidanceRadius
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
@@ -596,12 +656,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: gravity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: minSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginForce
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginRange
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: avoidanceRadius
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
@@ -724,12 +796,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: gravity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: minSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginForce
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginRange
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: avoidanceRadius
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
@@ -764,7 +848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020337295}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 22.265612, z: 0}
+  m_LocalPosition: {x: 0, y: 67, z: -92.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -793,7 +877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bound: {x: 0, y: 0, z: 0}
-  speed: 100
+  speed: 1
 --- !u!4 &1117694816 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5a78b076d154ebe47a9354114212253f,
@@ -918,7 +1002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575340204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 15.273273, z: 0}
+  m_LocalPosition: {x: 0, y: 69.7, z: -130.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1001,7 +1085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bound: {x: 0, y: 0, z: 0}
-  speed: 100
+  speed: 5
 --- !u!1001 &1630764497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1046,12 +1130,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: gravity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: minSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginForce
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginRange
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: avoidanceRadius
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
@@ -1306,12 +1402,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: gravity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: minSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginForce
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
       propertyPath: toOriginRange
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
+      propertyPath: avoidanceRadius
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a78b076d154ebe47a9354114212253f, type: 3}
