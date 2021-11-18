@@ -264,9 +264,13 @@ MonoBehaviour:
   Radius: 2
   pointA:
   - {x: 0, y: 0, z: 0}
-  - {x: 10, y: 0, z: 0}
-  - {x: 20, y: 0, z: 20}
+  - {x: 0, y: 0, z: 25}
+  - {x: 10, y: 0, z: 30}
   - {x: 20, y: 0, z: 30}
+  - {x: 25, y: 0, z: 25}
+  - {x: 30, y: 0, z: 20}
+  - {x: 35, y: 0, z: 10}
+  - {x: 20, y: 0, z: -5}
 --- !u!850595691 &1406344927
 LightingSettings:
   m_ObjectHideFlags: 0
