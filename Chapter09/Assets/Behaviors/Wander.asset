@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a7c8ca992f915438a96c2077353778, type: 3}
+  m_Name: Wander
+  m_EditorClassIdentifier: 
+  brickName: Assets/Behaviors/Wander.asset
+  xml: "\uFEFF<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<BehaviorBricks xmlns:ref=\"urn:padaone\"
+    version=\"1.0\">\r\n  <BehaviorTree id=\"0\" />\r\n  <runtimeInfo>\r\n    <BehaviorTree
+    id=\"0\" guid=\"23a4bbec9d68e58448b2f39637bbb586\" nextId=\"12\">\r\n      <root>\r\n
+    \       <RepeatDecorator id=\"4\" />\r\n      </root>\r\n      <inputParams>\r\n
+    \       <inputValues>\r\n          <entry name=\"wanderArea\" type=\"UnityEngine.GameObject\"
+    isBlackboard=\"False\" />\r\n        </inputValues>\r\n      </inputParams>\r\n
+    \     <outputParams />\r\n      <localParams>\r\n        <localValues>\r\n          <entry
+    name=\"wanderTarget\" type=\"UnityEngine.Vector3\" isBlackboard=\"False\" value=\"0
+    0 0\" />\r\n        </localValues>\r\n      </localParams>\r\n    </BehaviorTree>\r\n
+    \   <RepeatDecorator id=\"4\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n
+    \     <child>\r\n        <SequenceNode id=\"3\" />\r\n      </child>\r\n      <inputParams
+    />\r\n      <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n
+    \   <SequenceNode id=\"3\">\r\n      <children>\r\n        <elem>\r\n          <ActionNode
+    id=\"2\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"1\"
+    />\r\n        </elem>\r\n      </children>\r\n      <inputParams />\r\n      <outputParams
+    />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <ActionNode id=\"2\"
+    action=\"Vector3/GetRandomInArea\">\r\n      <inputParams>\r\n        <inputValues>\r\n
+    \         <entry name=\"area\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
+    blackboard=\"wanderArea\" />\r\n        </inputValues>\r\n      </inputParams>\r\n
+    \     <outputParams>\r\n        <outputValues>\r\n          <entry name=\"randomPosition\"
+    type=\"UnityEngine.Vector3\" isBlackboard=\"True\" blackboard=\"wanderTarget\"
+    />\r\n        </outputValues>\r\n      </outputParams>\r\n      <localParams />\r\n
+    \   </ActionNode>\r\n    <ActionNode id=\"1\" action=\"Navigation/MoveToPosition\">\r\n
+    \     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"target\"
+    type=\"UnityEngine.Vector3\" isBlackboard=\"True\" blackboard=\"wanderTarget\"
+    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n
+    \     <localParams />\r\n    </ActionNode>\r\n  </runtimeInfo>\r\n  <editorInfo>\r\n
+    \   <BehaviorTree id=\"0\" _name=\"Wander\" _description=\"Wanders to random positions
+    around a NavMesh area.\" _removeIfClosed=\"False\">\r\n      <_rootList>\r\n        <elem>\r\n
+    \         <RepeatDecorator id=\"4\" />\r\n        </elem>\r\n      </_rootList>\r\n
+    \     <_nodes>\r\n        <nodes>\r\n          <ActionNode id=\"1\" />\r\n          <ActionNode
+    id=\"2\" />\r\n          <SequenceNode id=\"3\" />\r\n          <RepeatDecorator
+    id=\"4\" />\r\n        </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n
+    \   <RepeatDecorator id=\"4\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
+    selected=\"False\" position=\"462.375 90\" name=\"Repeat\" description=\"Repeats
+    the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n          <BehaviorTree
+    id=\"0\" />\r\n          <RepeatDecorator id=\"4\" />\r\n        </data>\r\n      </_data>\r\n
+    \   </RepeatDecorator>\r\n    <SequenceNode id=\"3\">\r\n      <_data>\r\n        <data
+    breakpoint=\"0\" selected=\"False\" position=\"453.375 224\" name=\"Sequence\"
+    description=\"Executes all its children in sequence until all of them are successful\"
+    cardinality=\"-1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n
+    \         <SequenceNode id=\"3\" />\r\n          <RepeatDecorator id=\"4\" />\r\n
+    \       </data>\r\n      </_data>\r\n    </SequenceNode>\r\n    <ActionNode id=\"2\">\r\n
+    \     <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"278.375
+    356\" name=\"Vector3/GetRandomInArea\" description=\"Gets a random position from
+    a given area\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
+    id=\"0\" />\r\n          <ActionNode id=\"2\" />\r\n          <SequenceNode id=\"3\"
+    />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n    <ActionNode
+    id=\"1\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"551.375 357.35\" name=\"Navigation/MoveToPosition\" description=\"Moves
+    the game object to a given position by using a NavMeshAgent\" cardinality=\"0\"
+    hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
+    id=\"1\" />\r\n          <SequenceNode id=\"3\" />\r\n        </data>\r\n      </_data>\r\n
+    \   </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
+  zoom: 1
+  subslist: []
+  _guid: 23a4bbec9d68e58448b2f39637bbb586
