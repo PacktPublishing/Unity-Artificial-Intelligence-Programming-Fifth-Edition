@@ -14,7 +14,7 @@ public class AttackState : FSMState
         FindNextPoint();
     }
 
-    public override void Reason(Transform player, Transform npc)
+    public override void CheckTransitionRules(Transform player, Transform npc)
     {
         //Check the distance with the player tank
         float dist = Vector3.Distance(npc.position, player.position);
@@ -38,7 +38,7 @@ public class AttackState : FSMState
         }  
     }
 
-    public override void Act(Transform player, Transform npc)
+    public override void RunState(Transform player, Transform npc)
     {
         //Set the target position as the player position
         destPos = player.position;

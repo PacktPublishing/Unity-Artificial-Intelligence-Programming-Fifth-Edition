@@ -37,3 +37,5 @@ sysinfo.txt
 *.unitypackage
 
 BehaviorBricks/
+.DS_Store
+Chapter02/.vsconfig

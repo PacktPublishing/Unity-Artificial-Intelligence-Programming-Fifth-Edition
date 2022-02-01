@@ -9,6 +9,23 @@ public class NPCTankController : AdvancedFSM
     // We overwrite the deprecated built-in `rigidbody` variable.
     new private Rigidbody rigidbody;
 
+    //Player Transform
+    protected Transform playerTransform;
+
+    //Next destination position of the NPC Tank
+    protected Vector3 destPos;
+
+    //List of points for patrolling
+    protected GameObject[] pointList;
+
+    //Bullet shooting rate
+    protected float shootRate;
+    protected float elapsedTime;
+
+    //Tank Turret
+    public Transform turret { get; set; }
+    public Transform bulletSpawnPoint { get; set; }
+
     //Initialize the Finite state machine for the NPC tank
     protected override void Initialize()
     {
@@ -44,8 +61,8 @@ public class NPCTankController : AdvancedFSM
 
     protected override void FSMFixedUpdate()
     {
-        CurrentState.Reason(playerTransform, transform);
-        CurrentState.Act(playerTransform, transform);
+        CurrentState.CheckTransitionRules(playerTransform, transform);
+        CurrentState.RunState(playerTransform, transform);
     }
 
     public void SetTransition(Transition t) 

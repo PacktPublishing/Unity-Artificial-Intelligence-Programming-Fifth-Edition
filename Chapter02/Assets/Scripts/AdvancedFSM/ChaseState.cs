@@ -15,7 +15,7 @@ public class ChaseState : FSMState
         FindNextPoint();
     }
 
-    public override void Reason(Transform player, Transform npc)
+    public override void CheckTransitionRules(Transform player, Transform npc)
     {
         //Set the target position as the player position
         destPos = player.position;
@@ -36,7 +36,7 @@ public class ChaseState : FSMState
         }
     }
 
-    public override void Act(Transform player, Transform npc)
+    public override void RunState(Transform player, Transform npc)
     {
         //Rotate to the target point
         destPos = player.position;

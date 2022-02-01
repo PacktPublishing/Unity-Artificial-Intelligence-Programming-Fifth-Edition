@@ -137,7 +137,7 @@ GameObject:
   m_Layer: 0
   m_Name: WanderPoint
   m_TagString: WandarPoint
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -206,6 +206,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56276903}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &212915177 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400004, guid: 4e2c7e1912a40f740bb27fe5bd95e865,
+    type: 3}
+  m_PrefabInstance: {fileID: 499721981}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &223985189
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +226,7 @@ GameObject:
   m_Layer: 0
   m_Name: WanderPoint
   m_TagString: WandarPoint
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -289,6 +295,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223985189}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &338348575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: 1ae11e12b4123d6449de94743bba98eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 404919972}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &359214973
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,11 +335,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &365970319 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 4e2c7e1912a40f740bb27fe5bd95e865,
+    type: 3}
+  m_PrefabInstance: {fileID: 2116080371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &404919972
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 400000, guid: 1ae11e12b4123d6449de94743bba98eb, type: 3}
@@ -383,6 +402,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ae11e12b4123d6449de94743bba98eb, type: 3}
 --- !u!1 &404919973 stripped
 GameObject:
@@ -403,11 +423,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 100000, guid: 9b9d4461862db974fb79e91eb8effac8, type: 3}
+  Turret: {fileID: 1391813659}
+  bulletSpawnPoint: {fileID: 338348575}
+  curSpeed: 0
+  targetSpeed: 0
+  rotSpeed: 150
+  turretRotSpeed: 10
+  maxForwardSpeed: 300
+  maxBackwardSpeed: -300
+  shootRate: 0.5
+--- !u!4 &460008900 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 4e2c7e1912a40f740bb27fe5bd95e865,
+    type: 3}
+  m_PrefabInstance: {fileID: 499721981}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &499721981
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 359214974}
     m_Modifications:
     - target: {fileID: 400002, guid: 4e2c7e1912a40f740bb27fe5bd95e865, type: 3}
@@ -455,6 +491,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2c7e1912a40f740bb27fe5bd95e865, type: 3}
 --- !u!1 &519381637
 GameObject:
@@ -598,6 +635,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &877384895 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400004, guid: 4e2c7e1912a40f740bb27fe5bd95e865,
+    type: 3}
+  m_PrefabInstance: {fileID: 2116080371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &958357621 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 4e2c7e1912a40f740bb27fe5bd95e865,
@@ -616,8 +659,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea1c269785a46246add5afa8c3cbf3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curState: 0
+  curState: 1
   Bullet: {fileID: 100000, guid: 9b9d4461862db974fb79e91eb8effac8, type: 3}
+  turret: {fileID: 460008900}
+  bulletSpawnPoint: {fileID: 212915177}
 --- !u!850595691 &1109467922
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -625,7 +670,7 @@ LightingSettings:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Settings.lighting
-  serializedVersion: 4
+  serializedVersion: 5
   m_GIWorkflowMode: 1
   m_EnableBakedLightmaps: 1
   m_EnableRealtimeLightmaps: 0
@@ -659,13 +704,13 @@ LightingSettings:
   m_PVRCulling: 1
   m_PVRSampling: 1
   m_PVRDirectSampleCount: 32
-  m_PVRSampleCount: 500
-  m_PVREnvironmentSampleCount: 500
+  m_PVRSampleCount: 512
+  m_PVREnvironmentSampleCount: 512
   m_PVREnvironmentReferencePointCount: 2048
   m_LightProbeSampleCountMultiplier: 4
   m_PVRBounces: 2
   m_PVRMinBounces: 2
-  m_PVREnvironmentMIS: 0
+  m_PVREnvironmentImportanceSampling: 0
   m_PVRFilteringMode: 0
   m_PVRDenoiserTypeDirect: 0
   m_PVRDenoiserTypeIndirect: 0
@@ -680,6 +725,7 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
   m_PVRTiledBaking: 0
+  m_NumRaysToShootPerTexel: -1
 --- !u!1 &1186409608
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +820,12 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1391813659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 1ae11e12b4123d6449de94743bba98eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 404919972}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1432071892
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,7 +840,7 @@ GameObject:
   m_Layer: 0
   m_Name: WanderPoint
   m_TagString: WandarPoint
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -960,6 +1012,18 @@ Skybox:
   m_GameObject: {fileID: 1478809792}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: 069555bc0e3919e478a87b68d29349a8, type: 2}
+--- !u!4 &1482355356 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400004, guid: 4e2c7e1912a40f740bb27fe5bd95e865,
+    type: 3}
+  m_PrefabInstance: {fileID: 1972385302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1723073957 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 4e2c7e1912a40f740bb27fe5bd95e865,
+    type: 3}
+  m_PrefabInstance: {fileID: 1972385302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1740477036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 4e2c7e1912a40f740bb27fe5bd95e865,
@@ -980,7 +1044,7 @@ GameObject:
   m_Layer: 0
   m_Name: WanderPoint
   m_TagString: WandarPoint
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1089,6 +1153,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 359214974}
     m_Modifications:
     - target: {fileID: 100002, guid: 4e2c7e1912a40f740bb27fe5bd95e865, type: 3}
@@ -1140,6 +1205,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2c7e1912a40f740bb27fe5bd95e865, type: 3}
 --- !u!4 &1972385303 stripped
 Transform:
@@ -1165,13 +1231,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea1c269785a46246add5afa8c3cbf3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curState: 0
+  curState: 1
   Bullet: {fileID: 100000, guid: 9b9d4461862db974fb79e91eb8effac8, type: 3}
+  turret: {fileID: 1723073957}
+  bulletSpawnPoint: {fileID: 1482355356}
 --- !u!1001 &2116080371
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 359214974}
     m_Modifications:
     - target: {fileID: 100002, guid: 4e2c7e1912a40f740bb27fe5bd95e865, type: 3}
@@ -1223,6 +1292,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2c7e1912a40f740bb27fe5bd95e865, type: 3}
 --- !u!4 &2116080372 stripped
 Transform:
@@ -1248,5 +1318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea1c269785a46246add5afa8c3cbf3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curState: 0
+  curState: 1
   Bullet: {fileID: 100000, guid: 9b9d4461862db974fb79e91eb8effac8, type: 3}
+  turret: {fileID: 365970319}
+  bulletSpawnPoint: {fileID: 877384895}

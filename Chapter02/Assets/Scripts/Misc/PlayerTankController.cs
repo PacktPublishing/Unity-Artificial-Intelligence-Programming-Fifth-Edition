@@ -5,25 +5,20 @@ public class PlayerTankController : MonoBehaviour
 {
     public GameObject Bullet;
 	
-    private Transform Turret;
-    private Transform bulletSpawnPoint;    
-    private float curSpeed, targetSpeed, rotSpeed;
-    private float turretRotSpeed = 10.0f;
-    private float maxForwardSpeed = 300.0f;
-    private float maxBackwardSpeed = -300.0f;
+    public GameObject Turret;
+    public GameObject bulletSpawnPoint;
+    public float curSpeed, targetSpeed;
+    public float rotSpeed = 150.0f;
+    public float turretRotSpeed = 10.0f;
+    public float maxForwardSpeed = 300.0f;
+    public float maxBackwardSpeed = -300.0f;
+    public float shootRate = 0.5f;
 
-    //Bullet shooting rate
-    protected float shootRate;
     protected float elapsedTime;
 
     void Start()
     {
-        //Tank Settings
-        rotSpeed = 150.0f;
 
-        //Get the turret of the tank
-        Turret = gameObject.transform.GetChild(0).transform;
-        bulletSpawnPoint = Turret.GetChild(0).transform;
     }
 
     void OnEndGame()
@@ -89,7 +84,8 @@ public class PlayerTankController : MonoBehaviour
 
     void UpdateWeapon()
     {
-        if(Input.GetMouseButtonDown(0))
+        elapsedTime += Time.deltaTime;
+        if (Input.GetMouseButtonDown(0))
         {
             if (elapsedTime >= shootRate)
             {
@@ -97,7 +93,7 @@ public class PlayerTankController : MonoBehaviour
                 elapsedTime = 0.0f;
 
                 //Also Instantiate over the PhotonNetwork
-                Instantiate(Bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+                Instantiate(Bullet, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
             }
         }
     }

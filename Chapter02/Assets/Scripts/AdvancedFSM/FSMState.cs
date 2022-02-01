@@ -14,7 +14,7 @@ using System.Collections.Generic;
 /// which state the FSM should be if a transition is fired while this state
 /// is the current state.
 /// Reason method is used to determine which transition should be fired .
-/// Act method has the code to perform the actions the NPC is supposed to do if it큦 on this state.
+/// Act method has the code to perform the actions the NPC is supposed to do if it?s on this state.
 /// </summary>
 public abstract class FSMState
 {
@@ -48,8 +48,8 @@ public abstract class FSMState
     }
 
     /// <summary>
-    /// This method deletes a pair transition-state from this state큦 map.
-    /// If the transition was not inside the state큦 map, an ERROR message is printed.
+    /// This method deletes a pair transition-state from this state?s map.
+    /// If the transition was not inside the state?s map, an ERROR message is printed.
     /// </summary>
     public void DeleteTransition(Transition trans)
     {
@@ -66,7 +66,7 @@ public abstract class FSMState
             map.Remove(trans);
             return;
         }
-        Debug.LogError("FSMState ERROR: Transition passed was not on this State큦 List");
+        Debug.LogError("FSMState ERROR: Transition passed was not on this State?s List");
     }
 
 
@@ -97,14 +97,14 @@ public abstract class FSMState
     /// Decides if the state should transition to another on its list
     /// NPC is a reference to the npc tha is controlled by this class
     /// </summary>
-    public abstract void Reason(Transform player, Transform npc);
+    public abstract void CheckTransitionRules(Transform player, Transform npc);
 
     /// <summary>
     /// This method controls the behavior of the NPC in the game World.
     /// Every action, movement or communication the NPC does should be placed here
     /// NPC is a reference to the npc tha is controlled by this class
     /// </summary>
-    public abstract void Act(Transform player, Transform npc);
+    public abstract void RunState(Transform player, Transform npc);
 
     /// <summary>
     /// Find the next semi-random patrol point
