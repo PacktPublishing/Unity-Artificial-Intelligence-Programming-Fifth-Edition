@@ -3,16 +3,13 @@ using System.Collections;
 
 public class ChaseState : FSMState
 {
+    private Vector3 destPos;
+    private float curRotSpeed = 1.0f;
+    private float curSpeed = 100.0f;
+
     public ChaseState(Transform[] wp) 
     { 
-        waypoints = wp;
         stateID = FSMStateID.Chasing;
-
-        curRotSpeed = 1.0f;
-        curSpeed = 100.0f;
-
-        //find next Waypoint position
-        FindNextPoint();
     }
 
     public override void CheckTransitionRules(Transform player, Transform npc)

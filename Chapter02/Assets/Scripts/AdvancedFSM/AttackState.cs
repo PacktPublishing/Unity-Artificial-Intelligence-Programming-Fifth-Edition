@@ -3,6 +3,11 @@ using System.Collections;
 
 public class AttackState : FSMState
 {
+    private Vector3 destPos;
+    private Transform[] waypoints;
+    private float curRotSpeed = 1.0f;
+    private float curSpeed = 100.0f;
+
     public AttackState(Transform[] wp) 
     { 
         waypoints = wp;
@@ -50,5 +55,15 @@ public class AttackState : FSMState
 
         //Shoot bullet towards the player
         npc.GetComponent<NPCTankController>().ShootBullet();
+    }
+
+    /// <summary>
+    /// Find the next semi-random patrol point
+    /// </summary>
+    public void FindNextPoint() {
+        //Debug.Log("Finding next point");
+        int rndIndex = Random.Range(0, waypoints.Length);
+        Vector3 rndPosition = Vector3.zero;
+        destPos = waypoints[rndIndex].position + rndPosition;
     }
 }

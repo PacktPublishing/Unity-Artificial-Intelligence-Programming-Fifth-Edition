@@ -22,9 +22,14 @@ public class NPCTankController : AdvancedFSM
     protected float shootRate;
     protected float elapsedTime;
 
+    // Patrolling Radius
+    public float patrollingRadius = 100.0f;
+    public float attackRadius = 200.0f;
+    public float playerNearRadius = 300.0f;
+
     //Tank Turret
-    public Transform turret { get; set; }
-    public Transform bulletSpawnPoint { get; set; }
+    public Transform turret;
+    public Transform bulletSpawnPoint;
 
     //Initialize the Finite state machine for the NPC tank
     protected override void Initialize()
@@ -83,7 +88,7 @@ public class NPCTankController : AdvancedFSM
             i++;
         }
 
-        PatrolState patrol = new PatrolState(waypoints);
+        PatrolState patrol = new PatrolState(waypoints, playerNearRadius, patrollingRadius);
         patrol.AddTransition(Transition.SawPlayer, FSMStateID.Chasing);
         patrol.AddTransition(Transition.NoHealth, FSMStateID.Dead);
 

@@ -21,10 +21,6 @@ public abstract class FSMState
     protected Dictionary<Transition, FSMStateID> map = new Dictionary<Transition, FSMStateID>();
     protected FSMStateID stateID;
     public FSMStateID ID { get { return stateID; } }
-    protected Vector3 destPos;
-    protected Transform[] waypoints;
-    protected float curRotSpeed;
-    protected float curSpeed;
 
     public void AddTransition(Transition transition, FSMStateID id)
     {
@@ -106,16 +102,6 @@ public abstract class FSMState
     /// </summary>
     public abstract void RunState(Transform player, Transform npc);
 
-    /// <summary>
-    /// Find the next semi-random patrol point
-    /// </summary>
-    public void FindNextPoint()
-    {
-        //Debug.Log("Finding next point");
-        int rndIndex = Random.Range(0, waypoints.Length);
-        Vector3 rndPosition = Vector3.zero;
-        destPos = waypoints[rndIndex].position + rndPosition;
-    }
 
     /// <summary>
     /// Check whether the next random position is the same as current tank position

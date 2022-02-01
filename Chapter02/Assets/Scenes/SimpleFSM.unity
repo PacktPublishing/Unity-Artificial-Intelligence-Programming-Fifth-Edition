@@ -333,7 +333,7 @@ Transform:
   - {fileID: 1972385303}
   - {fileID: 2116080372}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &365970319 stripped
 Transform:
@@ -493,50 +493,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2c7e1912a40f740bb27fe5bd95e865, type: 3}
---- !u!1 &519381637
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 519381638}
-  - component: {fileID: 519381639}
-  m_Layer: 0
-  m_Name: Scripts
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &519381638
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519381637}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.378235, y: -20.429138, z: 131.10968}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519381639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519381637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec8b210d424e8c743b9608bc3bdaf83f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &608341892
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,6 +617,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curState: 1
   Bullet: {fileID: 100000, guid: 9b9d4461862db974fb79e91eb8effac8, type: 3}
+  shootRate: 3
+  elapsedTime: 0
+  maxFireAimError: 0.001
+  patrollingRadius: 100
+  attackRadius: 200
+  playerNearRadius: 300
   turret: {fileID: 460008900}
   bulletSpawnPoint: {fileID: 212915177}
 --- !u!850595691 &1109467922
@@ -1146,7 +1108,7 @@ Transform:
   - {fileID: 56276904}
   - {fileID: 1432071893}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1972385302
 PrefabInstance:
@@ -1233,6 +1195,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curState: 1
   Bullet: {fileID: 100000, guid: 9b9d4461862db974fb79e91eb8effac8, type: 3}
+  shootRate: 3
+  elapsedTime: 0
+  maxFireAimError: 0.001
+  patrollingRadius: 100
+  attackRadius: 200
+  playerNearRadius: 300
   turret: {fileID: 1723073957}
   bulletSpawnPoint: {fileID: 1482355356}
 --- !u!1001 &2116080371
@@ -1320,5 +1288,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curState: 1
   Bullet: {fileID: 100000, guid: 9b9d4461862db974fb79e91eb8effac8, type: 3}
+  shootRate: 3
+  elapsedTime: 0
+  maxFireAimError: 0.001
+  patrollingRadius: 100
+  attackRadius: 200
+  playerNearRadius: 300
   turret: {fileID: 365970319}
   bulletSpawnPoint: {fileID: 877384895}
