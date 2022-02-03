@@ -116,7 +116,7 @@ public class SlotMachineWeighted : MonoBehaviour {
 			if (!firstReelSpinned) {
 				firstReel.text = randomSpinResult.ToString();
 				if (elapsedTime >= spinDuration) {
-					int weightedRandom = pickNumber();
+					int weightedRandom = PickNumber();
                     firstReel.text = weightedRandom.ToString();
 					firstReelResult = weightedRandom;
 					firstReelSpinned = true;
@@ -150,7 +150,7 @@ public class SlotMachineWeighted : MonoBehaviour {
 						thirdReelResult = randomSpinResult;
 					}
 					else {
-						int weightedRandom = pickNumber();
+						int weightedRandom = PickNumber();
                         thirdReel.text = weightedRandom.ToString();
 						thirdReelResult = weightedRandom;
 					}
@@ -166,7 +166,7 @@ public class SlotMachineWeighted : MonoBehaviour {
 		}
 	}
 
-	private int pickNumber() {
+	private int PickNumber() {
 		// Sum the weights of every state.
 		var weightSum = weightedReelPoll.Sum(state => state.weight);
 		var randomNumber = UnityEngine.Random.Range(0, weightSum);
