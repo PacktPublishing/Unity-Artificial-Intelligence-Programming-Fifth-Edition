@@ -1,25 +1,29 @@
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
-public class DiceGame : MonoBehaviour {
-	
-	public string inputValue = "1";
+public class DiceGameLoaded : MonoBehaviour {
 
-    public TMP_Text outputText;
-    public TMP_InputField inputField;
+    public string inputValue = "1";
+
+    public Text outputText;
+    public InputField inputField;
     public Button button;
 
     int throwDice() {
-		Debug.Log("Throwing dice...");
-		Debug.Log("Finding random between 1 to 6...");
-		int diceResult = Random.Range(1,7);
-		
-		Debug.Log($"Result: {diceResult}");
-		
-		return diceResult;		
-	}
+        Debug.Log("Throwing dice...");
 
+        int randomProbability = Random.Range(0, 100);
+        int diceResult = 0;
+        if (randomProbability < 35) {
+            diceResult = 6;
+        } else {
+            diceResult = Random.Range(1, 5);
+        }
+
+        Debug.Log("Result: " + diceResult);
+
+        return diceResult;
+    }
 
     public void processGame() {
         inputValue = inputField.text;
