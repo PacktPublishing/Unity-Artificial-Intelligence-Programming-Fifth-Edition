@@ -9,7 +9,7 @@ public class Touch : Sense
         if (aspect != null)
         {
             //Check the aspect
-            if (aspect.aspectName == aspectName)
+            if (aspect.affiliation == targetAffiliation)
             {
                 print("Enemy Touch Detected");
             }

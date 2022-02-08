@@ -2,9 +2,9 @@ using UnityEngine;
 using System.Collections;
 
 public class Aspect : MonoBehaviour {
-	public enum aspect {
+	public enum Affiliation {
 		Player,
 		Enemy
 	}
-	public aspect aspectName;
+	public Affiliation affiliation;
 }

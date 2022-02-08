@@ -5,19 +5,33 @@ public class Wander : MonoBehaviour
 {
     private Vector3 tarPos;
 
+    [SerializeField]
     private float movementSpeed = 5.0f;
+
+    [SerializeField]
     private float rotSpeed = 2.0f;
-    private float minX, maxX, minZ, maxZ;
+
+    [SerializeField]
+    private float minX = -45.0f;
+
+    [SerializeField]
+    private float maxX = 45.0f;
+
+    [SerializeField]
+    private float minZ = -45.0f;
+
+    [SerializeField]
+    private float maxZ = -45.0f;
+
+    [SerializeField]
+    private float targetReactionRadius = 5.0f;
+
+    [SerializeField]
+    private float targetVerticalOffset = 0.5f;
 
 	// Use this for initialization
 	void Start () 
     {
-        minX = -45.0f;
-        maxX = 45.0f;
-
-        minZ = -45.0f;
-        maxZ = 45.0f;
-
         //Get Wander Position
         GetNextPosition();
 	}
@@ -25,7 +39,7 @@ public class Wander : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-        if(Vector3.Distance(tarPos, transform.position) <= 5.0f)
+        if(Vector3.Distance(tarPos, transform.position) <= targetReactionRadius)
             GetNextPosition();
 
         Quaternion tarRot = Quaternion.LookRotation(tarPos - transform.position);
@@ -36,6 +50,6 @@ public class Wander : MonoBehaviour
 
     void GetNextPosition()
     {
-        tarPos = new Vector3(Random.Range(minX, maxX), 0.5f, Random.Range(minZ, maxZ));
+        tarPos = new Vector3(Random.Range(minX, maxX), targetVerticalOffset, Random.Range(minZ, maxZ));
     }
 }

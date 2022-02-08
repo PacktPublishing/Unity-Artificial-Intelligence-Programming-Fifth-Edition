@@ -19,18 +19,20 @@ public class Sight : Sense
     {
         elapsedTime += Time.deltaTime;
 
-        if (elapsedTime >= detectionRate)
+        if (elapsedTime >= detectionRate) {
             DetectAspect();
+            elapsedTime = 0.0f;
+        }
 	}
 
     //Detect perspective field of view for the AI Character
     void DetectAspect()
     {
-        RaycastHit hit;
-        rayDirection = playerTrans.position - transform.position;
+        rayDirection = (playerTrans.position - transform.position).normalized;
 
         if ((Vector3.Angle(rayDirection, transform.forward)) < FieldOfView)
         {
+            RaycastHit hit;
             // Detect if player is within the field of view
             if (Physics.Raycast(transform.position, rayDirection, out hit, ViewDistance))
             {
@@ -38,7 +40,7 @@ public class Sight : Sense
                 if (aspect != null)
                 {
                     //Check the aspect
-                    if (aspect.aspectName == aspectName)
+                    if (aspect.affiliation == targetAffiliation)
                     {
                         print("Enemy Detected");
                     }

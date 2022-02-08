@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Sense : MonoBehaviour {
 	public bool bDebug = true;
-	public Aspect.aspect aspectName = Aspect.aspect.Enemy;
+	public Aspect.Affiliation targetAffiliation = Aspect.Affiliation.Enemy;
 	public float detectionRate = 1.0f;
 
 	protected float elapsedTime = 0.0f;

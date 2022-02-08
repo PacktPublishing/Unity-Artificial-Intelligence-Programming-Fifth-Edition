@@ -3,19 +3,20 @@ using UnityEngine;
 public class PlayerTank : MonoBehaviour 
 {
     public Transform targetTransform;
-    private float movementSpeed, rotSpeed;
 
-	// Use this for initialization
-	void Start () 
-    {
-        movementSpeed = 10.0f;
-        rotSpeed = 2.0f;
-	}
+    [SerializeField]
+    private float movementSpeed = 10.0f;
+
+    [SerializeField]
+    private float rotSpeed = 2.0f;
+
+    [SerializeField]
+    private float targerReactionRadius = 5.0f;
 	
 	// Update is called once per frame
 	void Update () 
     {
-        if(Vector3.Distance(transform.position, targetTransform.position) < 5.0f)
+        if(Vector3.Distance(transform.position, targetTransform.position) < targerReactionRadius)
             return;
 
         Vector3 tarPos = targetTransform.position;
