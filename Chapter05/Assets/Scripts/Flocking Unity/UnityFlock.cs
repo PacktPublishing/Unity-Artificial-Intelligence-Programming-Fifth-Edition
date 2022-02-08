@@ -27,10 +27,11 @@ public class UnityFlock : MonoBehaviour
     private Transform[] objects;            //Flock objects in the group
     private UnityFlock[] otherFlocks;       //Unity Flocks in the group
     private Transform transformComponent;   //My transform
+    private float randomFreqInterval;
 
     void Start ()
     {
-        randomFreq = 1.0f / randomFreq;
+        randomFreqInterval = 1.0f / randomFreq;
 
         //Assign the parent as origin
 	    origin = transform.parent;   
@@ -69,104 +70,94 @@ public class UnityFlock : MonoBehaviour
 	    while(true)
 	    {
 		    randomPush = Random.insideUnitSphere * randomForce;
-		    yield return new WaitForSeconds(randomFreq + Random.Range(-randomFreq / 2.0f, randomFreq / 2.0f));
+            yield return new WaitForSeconds(randomFreqInterval + Random.Range(-randomFreqInterval / 2.0f, randomFreqInterval / 2.0f));
 	    }
     }
 
-    void Update ()
-    { 
+    void Update() {
         //Internal variables
-	    float speed= velocity.magnitude;
+        float speed = velocity.magnitude;
         Vector3 avgVelocity = Vector3.zero;
         Vector3 avgPosition = Vector3.zero;
-	    float count = 0;
-	    float f = 0.0f;
-        float d = 0.0f;
+        int count = 0;
+
         Vector3 myPosition = transformComponent.position;
         Vector3 forceV;
         Vector3 toAvg;
-        Vector3 wantedVel;
 
-	    for(int i = 0;i<objects.Length;i++)
-	    {
-		    Transform transform= objects[i];
-            if (transform != transformComponent)
-		    {
-                Vector3 otherPosition = transform.position;
+        for (int i = 0; i < objects.Length; i++) {
+            Transform boidTransform = objects[i];
+            if (boidTransform != transformComponent) {
+                Vector3 otherPosition = boidTransform.position;
 
                 // Average position to calculate cohesion
-			    avgPosition += otherPosition;
-			    count++;
+                avgPosition += otherPosition;
+                count++;
 
                 //Directional vector from other flock to this flock
                 forceV = myPosition - otherPosition;
 
                 //Magnitude of that directional vector(Length)
-			    d= forceV.magnitude;
+                float directionMagnitude = forceV.magnitude;
+                float forceMagnitude = 0.0f;
 
                 //Add push value if the magnitude is less than follow radius to the leader
-			    if (d < followRadius)
-			    {
+                if (directionMagnitude < followRadius) {
                     //calculate the velocity based on the avoidance distance between flocks 
                     //if the current magnitude is less than the specified avoidance radius
-				    if(d < avoidanceRadius)
-				    {
-					    f = 1.0f - (d / avoidanceRadius);
+                    if (directionMagnitude < avoidanceRadius) {
+                        forceMagnitude = 1.0f - (directionMagnitude / avoidanceRadius);
 
-					    if(d > 0) 
-                            avgVelocity += (forceV / d) * f * avoidanceForce;
-				    }
-    				
+                        if (directionMagnitude > 0)
+                            avgVelocity += (forceV / directionMagnitude) * forceMagnitude * avoidanceForce;
+                    }
+
                     //just keep the current distance with the leader
-				    f = d / followRadius;
-				    UnityFlock tempOtherFlock = otherFlocks[i];
-				    avgVelocity += tempOtherFlock.normalizedVelocity * f * followVelocity;	
-			    }
-		    }	
-	    }
-    	
-	    if(count > 0)
-	    {
+                    forceMagnitude = directionMagnitude / followRadius;
+                    UnityFlock tempOtherBoid = otherFlocks[i];
+                    avgVelocity += followVelocity * forceMagnitude * tempOtherBoid.normalizedVelocity;
+                }
+            }
+        }
+
+        if (count > 0) {
             //Calculate the average flock velocity(Alignment)
-		    avgVelocity /= count;
+            avgVelocity /= count;
 
             //Calculate Center value of the flock(Cohesion)
-		    toAvg = (avgPosition / count) - myPosition;	
-	    }	
-	    else
-	    {
-		    toAvg = Vector3.zero;		
-	    }
-    	
+            toAvg = (avgPosition / count) - myPosition;
+        } else {
+            toAvg = Vector3.zero;
+        }
+
         //Directional Vector to the leader
-	    forceV = origin.position -  myPosition;
-	    d = forceV.magnitude;   
-	    f = d / toOriginRange;
+        forceV = origin.position - myPosition;
+        float leaderDirectionMagnitude = forceV.magnitude;
+        float leaderForceMagnitude = leaderDirectionMagnitude / toOriginRange;
 
         //Calculate the velocity of the flock to the leader
-	    if(d > 0) 
-            originPush = (forceV / d) * f * toOriginForce;
-    	
-	    if(speed < minSpeed && speed > 0)
-	    {
-		    velocity = (velocity / speed) * minSpeed;
-	    }
-    	
-	    wantedVel = velocity;
-		
+        if (leaderDirectionMagnitude > 0)
+            originPush = leaderForceMagnitude * toOriginForce * (forceV / leaderDirectionMagnitude);
+
+        if (speed < minSpeed && speed > 0) {
+            velocity = (velocity / speed) * minSpeed;
+        }
+
+        Vector3 wantedVel = velocity;
+
         //Calculate final velocity
-	    wantedVel -= wantedVel *  Time.deltaTime;	
-	    wantedVel += randomPush * Time.deltaTime;
-	    wantedVel += originPush * Time.deltaTime;
-	    wantedVel += avgVelocity * Time.deltaTime;
-	    wantedVel += toAvg.normalized * gravity * Time.deltaTime;
+        wantedVel -= wantedVel * Time.deltaTime;
+        wantedVel += randomPush * Time.deltaTime;
+        wantedVel += originPush * Time.deltaTime;
+        wantedVel += avgVelocity * Time.deltaTime;
+        wantedVel += gravity * Time.deltaTime * toAvg.normalized;
 
         //Final Velocity to rotate the flock into
-	    velocity = Vector3.RotateTowards(velocity, wantedVel, turnSpeed * Time.deltaTime, 100.00f);
-	    transformComponent.rotation = Quaternion.LookRotation(velocity);
-    	
+        velocity = Vector3.RotateTowards(velocity, wantedVel, turnSpeed * Time.deltaTime, 100.00f);
+        transformComponent.rotation = Quaternion.LookRotation(velocity);
+
         //Move the flock based on the calculated velocity
-		transformComponent.Translate(velocity * Time.deltaTime, Space.World);
+        transformComponent.Translate(velocity * Time.deltaTime, Space.World);
 
         //normalise the velocity
         normalizedVelocity = velocity.normalized;

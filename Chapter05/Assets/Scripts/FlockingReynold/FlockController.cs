@@ -36,16 +36,14 @@ public class FlockController : MonoBehaviour
 		}
 	}
 
-	void Update()
-	{
-        //Calculate the Center and Velocity of the whole flock group
+	void Update() {
+		//Calculate the Center and Velocity of the whole flock group
 		Vector3 center = Vector3.zero;
 		Vector3 velocity = Vector3.zero;
-		
-        foreach (Flock flock in flockList)
-		{
-            center += flock.transform.localPosition;
-            velocity += flock.GetComponent<Rigidbody>().velocity;
+
+		foreach (Flock flock in flockList) {
+			center += flock.transform.localPosition;
+			velocity += flock.GetComponent<Rigidbody>().velocity;
 		}
 
 		flockCenter = center / flockSize;

@@ -6,6 +6,7 @@ public class TargetMovement : MonoBehaviour
 	// Move target around circle with tangential speed 
     public Vector3 bound;
     public float speed = 100.0f;
+    public float targetReachRadius = 10.0f;
 
     private Vector3 initialPosition;
     private Vector3 nextMovementPoint;
@@ -25,14 +26,13 @@ public class TargetMovement : MonoBehaviour
 
         nextMovementPoint = initialPosition + new Vector3(posX, posY, posZ); 
     }
-	
-	// Update is called once per frame
-	void Update () 
-    {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(nextMovementPoint - transform.position), 1.0f * Time.deltaTime);
 
-        if(Vector3.Distance(nextMovementPoint, transform.position) <= 10.0f)
+    // Update is called once per frame
+    void Update() {
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(nextMovementPoint - transform.position), Time.deltaTime);
+
+        if (Vector3.Distance(nextMovementPoint, transform.position) <= targetReachRadius)
             CalculateNextMovementPoint();
-	}
+    }
 }
