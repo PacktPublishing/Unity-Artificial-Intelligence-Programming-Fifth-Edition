@@ -17,10 +17,10 @@ public class Node : IComparable
     /// </summary>
     public Node()
     {
-        this.estimatedCost = 0.0f;
-        this.nodeTotalCost = 1.0f;
-        this.bObstacle = false;
-        this.parent = null;
+        estimatedCost = 0.0f;
+        nodeTotalCost = 1.0f;
+        bObstacle = false;
+        parent = null;
     }
 
     /// <summary>
@@ -28,12 +28,11 @@ public class Node : IComparable
     /// </summary>
     public Node(Vector3 pos)
     {
-        this.estimatedCost = 0.0f;
-        this.nodeTotalCost = 1.0f;
-        this.bObstacle = false;
-        this.parent = null;
-
-        this.position = pos;
+        estimatedCost = 0.0f;
+        nodeTotalCost = 1.0f;
+        bObstacle = false;
+        parent = null;
+        position = pos;
     }
 
     /// <summary>
@@ -41,7 +40,7 @@ public class Node : IComparable
     /// </summary>
     public void MarkAsObstacle()
     {
-        this.bObstacle = true;
+        bObstacle = true;
     }
 
     /// <summary>
@@ -49,15 +48,18 @@ public class Node : IComparable
     // It applies when calling the Sort method from ArrayList
     // Compare using the estimated total cost between two nodes
     /// </summary>
-    public int CompareTo(object obj)
-    {
-        Node node = (Node)obj;
-        if (this.estimatedCost < node.estimatedCost)
-            return -1;
-        if (this.estimatedCost > node.estimatedCost)
-            return 1;
+    public int CompareTo(object obj) {
+        if (obj is not Node n || estimatedCost == n.estimatedCost) return 0;
+        return estimatedCost > n.estimatedCost ? 1 : -1;
+    }
 
-        return 0;
+    public override bool Equals(object obj) {
+        return obj is Node node &&
+               position.Equals(node.position);
+    }
+
+    public override int GetHashCode() {
+        return HashCode.Combine(position);
     }
 }
 

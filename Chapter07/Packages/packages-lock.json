@@ -22,10 +22,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.analytics": {
-      "version": "3.6.12",
+      "version": "3.7.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
+        "com.unity.services.analytics": "1.0.4",
         "com.unity.ugui": "1.0.0"
       },
       "url": "https://packages.unity.com"
@@ -73,7 +74,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.nuget.newtonsoft-json": {
-      "version": "2.0.0",
+      "version": "2.0.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -89,6 +90,15 @@
         "com.unity.modules.unitywebrequest": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.modules.androidjni": "1.0.0",
+        "com.unity.services.core": "1.0.1"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.services.analytics": {
+      "version": "1.0.4",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
         "com.unity.services.core": "1.0.1"
       },
       "url": "https://packages.unity.com"

@@ -1,67 +1,61 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class TestCode : MonoBehaviour 
-{
+public class TestCode : MonoBehaviour {
     private Transform startPos, endPos;
     public Node startNode { get; set; }
     public Node goalNode { get; set; }
 
-    public ArrayList pathArray;
-	
+    public List<Node> pathArray;
+
     GameObject objStartCube, objEndCube;
-	
+
     private float elapsedTime = 0.0f;
     public float intervalTime = 1.0f; //Interval time between path finding
 
-	// Use this for initialization
-	void Start () 
-    {
+    // Use this for initialization
+    void Start() {
         objStartCube = GameObject.FindGameObjectWithTag("Start");
         objEndCube = GameObject.FindGameObjectWithTag("End");
 
         //AStar Calculated Path
-        pathArray = new ArrayList();
+        pathArray = new List<Node>();
         FindPath();
-	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
+    }
+
+    // Update is called once per frame
+    void Update() {
         elapsedTime += Time.deltaTime;
 
-        if(elapsedTime >= intervalTime)
-        {
+        if (elapsedTime >= intervalTime) {
             elapsedTime = 0.0f;
             FindPath();
         }
-	}
+    }
 
-    void FindPath()
-    {
+    void FindPath() {
         startPos = objStartCube.transform;
         endPos = objEndCube.transform;
 
         //Assign StartNode and Goal Node
-        startNode = new Node(GridManager.instance.GetGridCellCenter(GridManager.instance.GetGridIndex(startPos.position)));
-        goalNode = new Node(GridManager.instance.GetGridCellCenter(GridManager.instance.GetGridIndex(endPos.position)));
+        var (startColumn,startRow) = GridManager.instance.GetGridCoordinates(startPos.position);
+        var (goalColumn, goalRow) = GridManager.instance.GetGridCoordinates(endPos.position);
+        startNode = new Node(GridManager.instance.GetGridCellCenter(startColumn, startRow));
+        goalNode = new Node(GridManager.instance.GetGridCellCenter(goalColumn, goalRow));
 
-        pathArray = AStar.FindPath(startNode, goalNode);
+        pathArray = new AStar().FindPath(startNode, goalNode);
     }
 
-    void OnDrawGizmos()
-    {
+    void OnDrawGizmos() {
         if (pathArray == null)
             return;
 
-        if (pathArray.Count > 0)
-        {
+        if (pathArray.Count > 0) {
             int index = 1;
-            foreach (Node node in pathArray)
-            {
-                if (index < pathArray.Count)
-                {
-                    Node nextNode = (Node)pathArray[index];
+            foreach (Node node in pathArray) {
+                if (index < pathArray.Count) {
+                    Node nextNode = pathArray[index];
                     Debug.DrawLine(node.position, nextNode.position, Color.green);
                     index++;
                 }
