@@ -1,39 +1,28 @@
 using UnityEngine;
-using System.Collections;
 
-public class Path: MonoBehaviour
-{
+public class Path : MonoBehaviour {
     public bool isDebug = true;
-    public float Radius = 2.0f;
-    public Vector3[] pointA;
+    public Transform[] waypoints;
 
-    public float Length
-    {
-        get
-        {
-            return pointA.Length;
+    public float Length {
+        get {
+            return waypoints.Length;
         }
     }
 
-    public Vector3 GetPoint(int index)
-    {
-        return pointA[index];
+    public Vector3 GetPoint(int index) {
+        return waypoints[index].position;
     }
 
     /// <summary>
     /// Show Debug Grids and obstacles inside the editor
     /// </summary>
-    void OnDrawGizmos()
-    {
+    void OnDrawGizmos() {
         if (!isDebug)
             return;
 
-        for (int i = 0; i < pointA.Length; i++)
-        {
-            if (i + 1 < pointA.Length)
-            {
-                Debug.DrawLine(pointA[i], pointA[i + 1], Color.red);
-            }
+        for (int i = 1; i < waypoints.Length; i++) {
+            Debug.DrawLine(waypoints[i-1].position, waypoints[i].position, Color.red);
         }
     }
 }
