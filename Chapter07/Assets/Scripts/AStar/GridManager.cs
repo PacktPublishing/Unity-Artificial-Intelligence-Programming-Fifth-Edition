@@ -42,6 +42,10 @@ public class GridManager : MonoBehaviour {
         get { return transform.position; }
     }
 
+    public float StepCost {
+        get { return gridCellSize; }
+    }
+
     //Initialise the grid manager
     void Awake() {
         Debug.Log(GetGridCellCenter(3, 10));
@@ -117,7 +121,7 @@ public class GridManager : MonoBehaviour {
     }
 
     public bool IsTraversable(int col, int row) {
-        return col >= 0 && row >= 0 && col < numOfColumns && row < numOfRows && !nodes[col, row].bObstacle;
+        return col >= 0 && row >= 0 && col < numOfColumns && row < numOfRows && !nodes[col, row].isObstacle;
     }
 
 
@@ -172,7 +176,7 @@ public class GridManager : MonoBehaviour {
             Gizmos.color = Color.red;
             for (int i = 0; i < numOfColumns; i++) {
                 for (int j = 0; j < numOfRows; j++) {
-                    if (nodes != null && nodes[i, j].bObstacle) {
+                    if (nodes != null && nodes[i, j].isObstacle) {
                         Gizmos.DrawCube(GetGridCellCenter(i,j), cellSize);
                     }
                 }

@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 
 public class NodePriorityQueue {
-    private SortedSet<Node> nodes = new SortedSet<Node>();
+    private List<Node> nodes = new();
 
     public int Length {
         get { return nodes.Count; }
@@ -13,8 +14,8 @@ public class NodePriorityQueue {
 
     public Node Dequeue() {
         if (nodes.Count > 0) {
-            var result = nodes.Min;
-            nodes.Remove(result);
+            var result = nodes[0];
+            nodes.RemoveAt(0);
             return result;
         }
         return null;
@@ -22,11 +23,15 @@ public class NodePriorityQueue {
 
     public void Enqueue(Node node) {
         if (nodes.Contains(node)) {
-            // We remove and re-add the node to update
-            // the other nodes properties.
-            nodes.Remove(node);
+            var oldNode = nodes.First(n => n.Equals(node));
+            if (oldNode.fScore <= node.fScore) {
+                return;
+            } else {
+                nodes.Remove(oldNode);
+            }
         }
         nodes.Add(node);
+        nodes = nodes.OrderBy(n => n.fScore).ToList();
     }
 
 }
