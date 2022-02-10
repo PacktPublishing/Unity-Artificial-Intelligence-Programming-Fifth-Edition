@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 //Grid manager class handles all the grid properties
 public class GridManager : MonoBehaviour {
-    // s_Instance is used to cache the instance found in the scene so we don't have to look it up every time.
+    // staticInstance is used to cache the instance found in the scene so we don't have to look it up every time.
     private static GridManager staticInstance = null;
 
     // This defines a static instance property that attempts to find the manager object in the scene and
@@ -48,8 +48,6 @@ public class GridManager : MonoBehaviour {
 
     //Initialise the grid manager
     void Awake() {
-        Debug.Log(GetGridCellCenter(3, 10));
-        Debug.Log(GetGridCoordinates(new Vector3(5.0f, 0.0f, 19.0f)));
         ComputeGrid();
     }
 

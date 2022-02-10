@@ -11,16 +11,6 @@ public class Node {
     #endregion
 
     /// <summary>
-    //Default Constructor
-    /// </summary>
-    public Node() {
-        fScore = 0.0f;
-        costSoFar = 0.0f;
-        isObstacle = false;
-        parent = null;
-    }
-
-    /// <summary>
     //Constructor with adding position to the node creation
     /// </summary>
     public Node(Vector3 pos) {

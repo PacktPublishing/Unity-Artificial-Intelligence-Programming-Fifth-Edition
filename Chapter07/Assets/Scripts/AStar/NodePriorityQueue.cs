@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class NodePriorityQueue {
-    private List<Node> nodes = new();
+    private readonly List<Node> nodes = new();
 
     public int Length {
         get { return nodes.Count; }
@@ -31,7 +31,7 @@ public class NodePriorityQueue {
             }
         }
         nodes.Add(node);
-        nodes = nodes.OrderBy(n => n.fScore).ToList();
+        nodes.Sort((n1, n2) => n1.fScore < n2.fScore ? -1 : 1);
     }
 
 }
