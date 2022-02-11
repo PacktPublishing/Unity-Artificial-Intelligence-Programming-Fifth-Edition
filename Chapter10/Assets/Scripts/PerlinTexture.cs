@@ -31,13 +31,10 @@ public class PerlinTexture : MonoBehaviour {
         rend.material.mainTexture = noiseTex;
     }
 
-    void CalcNoise() {
+    void CalculateNoise() {
         // For each pixel in the texture...
-        float y = 0.0F;
-
-        for (y=0.0F; y < noiseTex.height; y++) {
-            float x = 0.0F;
-            for (x=0.0F; x < noiseTex.width; x++) {
+        for (float y = 0.0f; y < noiseTex.height; y++) {
+            for (float x = 0.0f; x < noiseTex.width; x++) {
                 float xCoord = xOrg + x / noiseTex.width * scale;
                 float yCoord = yOrg + y / noiseTex.height * scale;
                 float sample = Mathf.PerlinNoise(xCoord, yCoord);
@@ -51,6 +48,6 @@ public class PerlinTexture : MonoBehaviour {
     }
 
     void Update() {
-        CalcNoise();
+        CalculateNoise();
     }
 }
