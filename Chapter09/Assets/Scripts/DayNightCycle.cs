@@ -15,13 +15,13 @@ public class DayNightCycle : MonoBehaviour
 
     /// <value>Read-only property that informs if it is currently night time.</value>
     // Read-only property that informs if it is currently night time.
-    public bool isNight { get; private set; }
+    public bool IsNight { get; private set; }
+
+    // Private field with the hard-coded night color.
+    public Color nightColor = Color.white * 0.1f;
 
     // Private field with the day color. It is set to the initial light color.
     private Color dayColor;
-
-    // Private field with the hard-coded night color.
-    private Color nightColor = Color.white * 0.1f;
 
     // Reference to the Light component
     private Light lightComponent;
@@ -37,16 +37,16 @@ public class DayNightCycle : MonoBehaviour
     /// <summary>DoneDayNightCycle Update Method.</summary>
     /// <remarks>Calculate the intensity of the light with the time elapsed and 
     /// depending on it do a lerp between the color of day and night, also register of EventHandler of this class.</remarks>
-    void Update()
-    {
+    void Update() {
         float lightIntensity = 0.5f +
                       Mathf.Sin(Time.time * 2.0f * Mathf.PI / dayDuration) / 2.0f;
-        if (isNight != (lightIntensity < 0.3))
-        {
-            isNight = !isNight;
-            if (OnChanged != null)
-                OnChanged(this, System.EventArgs.Empty);
+
+        bool shouldBeNight = lightIntensity < 0.3f;
+        if (IsNight != shouldBeNight) {
+            IsNight = shouldBeNight;
+            OnChanged?.Invoke(this, System.EventArgs.Empty); // Invoke event handler (if set).
         }
+
         lightComponent.color = Color.Lerp(nightColor, dayColor, lightIntensity);
     }
 
