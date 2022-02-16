@@ -5,6 +5,7 @@ public class UnityFlockController : MonoBehaviour
 {
     public Vector3 bound;
     public float speed = 100.0f;
+    public float targetReachedRadius = 10.0f;
 
     private Vector3 initialPosition;
     private Vector3 nextMovementPoint;
@@ -31,7 +32,7 @@ public class UnityFlockController : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(nextMovementPoint - transform.position), 1.0f * Time.deltaTime);
 
-        if (Vector3.Distance(nextMovementPoint, transform.position) <= 10.0f)
+        if (Vector3.Distance(nextMovementPoint, transform.position) <= targetReachedRadius)
             CalculateNextMovementPoint();
     }
     
