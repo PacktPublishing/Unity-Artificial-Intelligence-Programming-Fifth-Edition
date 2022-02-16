@@ -1,9 +1,22 @@
-using UnityEngine;using System.Collections;public class PatrolState : FSMState{
-    private Vector3 destPos;    private Transform[] waypoints;    private float curRotSpeed = 1.0f;    private float curSpeed = 100.0f;    private float playerNearRadius;    private float patrollRadius;    public PatrolState(Transform[] wp, float playerNearRadius, float patrollRadius)     {         waypoints = wp;        stateID = FSMStateID.Patrolling;        this.playerNearRadius = playerNearRadius;        this.patrollRadius = patrollRadius;    }    public override void CheckTransitionRules(Transform player, Transform npc)    {        //Check the distance with player tank        //When the distance is near, transition to chase state        if (Vector3.Distance(npc.position, player.position) <= playerNearRadius)        {            Debug.Log("Switch to Chase State");            NPCTankController npcTankController = npc.GetComponent<NPCTankController>();            if (npcTankController != null) {
+using UnityEngine;using System.Collections;public class PatrolState : FSMState {
+    private Vector3 destPos;    private Transform[] waypoints;    private float curRotSpeed = 1.0f;    private float curSpeed = 100.0f;    private float playerNearRadius;    private float patrollRadius;    public PatrolState(Transform[] wp, float playerNearRadius, float patrollRadius) {
+        waypoints = wp;        stateID = FSMStateID.Patrolling;        this.playerNearRadius = playerNearRadius;        this.patrollRadius = patrollRadius;    }    public override void CheckTransitionRules(Transform player, Transform npc) {
+        //Check the distance with player tank
+        //When the distance is near, transition to chase state
+        if (Vector3.Distance(npc.position, player.position) <= playerNearRadius) {            Debug.Log("Switch to Chase State");            NPCTankController npcTankController = npc.GetComponent<NPCTankController>();            if (npcTankController != null) {
                 npc.GetComponent<NPCTankController>().SetTransition(Transition.SawPlayer);
             } else {
                 Debug.LogError("NPCTankController not found in NPC");
-            }        }    }    public override void RunState(Transform player, Transform npc)    {        //Find another random patrol point if the current point is reached		        if (Vector3.Distance(npc.position, destPos) <= patrollRadius)        {            Debug.Log("Reached to the destination point\ncalculating the next point");            FindNextPoint();        }        //Rotate to the target point        Quaternion targetRotation = Quaternion.FromToRotation(Vector3.forward, destPos - npc.position);        npc.rotation = Quaternion.Slerp(npc.rotation, targetRotation, Time.deltaTime * curRotSpeed);        //Go Forward        npc.Translate(Vector3.forward * Time.deltaTime * curSpeed);    }
+            }        }    }    public override void RunState(Transform player, Transform npc) {
+        //Find another random patrol point if the current point is reached
+
+        if (Vector3.Distance(npc.position, destPos) <= patrollRadius) {            Debug.Log("Reached to the destination point\ncalculating the next point");            FindNextPoint();        }
+
+        //Rotate to the target point
+        Quaternion targetRotation = Quaternion.FromToRotation(Vector3.forward, destPos - npc.position);        npc.rotation = Quaternion.Slerp(npc.rotation, targetRotation, Time.deltaTime * curRotSpeed);
+
+        //Go Forward
+        npc.Translate(Vector3.forward * Time.deltaTime * curSpeed);    }
 
     /// <summary>
     /// Find the next semi-random patrol point

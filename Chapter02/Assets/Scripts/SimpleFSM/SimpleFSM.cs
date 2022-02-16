@@ -134,7 +134,7 @@ public class SimpleFSM : FSM
         //Check the distance with player tank
         //When the distance is near, transition to attack state
         float dist = Vector3.Distance(transform.position, playerTransform.position);
-        if (dist <= 200.0f)
+        if (dist <= attackRadius)
         {
             curState = FSMState.Attack;
         }
