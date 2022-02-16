@@ -12,7 +12,6 @@ public class Sense : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		elapsedTime = 0.0f;
 		Initialize();
 	}
 	
