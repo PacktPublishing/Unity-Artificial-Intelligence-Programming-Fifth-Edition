@@ -10,9 +10,7 @@ using UnityEngine;
 /// </summary>
 /// 
 [Condition("Chapter09/IsNight")]
-[Help("Checks whether it is night. It searches for the first light labeled with " +
-          "the 'MainLight' tag, and looks for its DayNightCycle script, returning the" +
-          "informed state. If no light is found, false is returned.")]
+[Help("Checks whether it is night.")]
 public class IsNightCondition : ConditionBase {
     /// <summary>
     /// Method Checks if there is DoneDayNightCycle component.
