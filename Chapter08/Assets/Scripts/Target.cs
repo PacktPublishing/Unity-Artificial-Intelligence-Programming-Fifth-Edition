@@ -12,24 +12,19 @@ public class Target : MonoBehaviour
 	    navAgents = FindObjectsOfType(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent[];
     }
 
-    void UpdateTargets ( Vector3 targetPosition  )
-    {
-	    foreach(UnityEngine.AI.NavMeshAgent agent in navAgents) 
-        {
-		    agent.destination = targetPosition;
-	    }
+    void UpdateTargets(Vector3 targetPosition) {
+        foreach (UnityEngine.AI.NavMeshAgent agent in navAgents) {
+            agent.destination = targetPosition;
+        }
     }
 
-    void Update ()
-    {
-        int button = 0;
+    void Update() {
 
         //Get the point of the hit position when the mouse is being clicked
-        if (Input.GetMouseButtonDown(button)) {
+        if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hitInfo;
 
-            if (Physics.Raycast(ray.origin, ray.direction, out hitInfo)) {
+            if (Physics.Raycast(ray.origin, ray.direction, out var hitInfo)) {
                 Vector3 targetPosition = hitInfo.point;
                 UpdateTargets(targetPosition);
                 targetMarker.position = targetPosition + new Vector3(0, verticalOffset, 0);
