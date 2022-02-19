@@ -26,7 +26,6 @@ public class GridManager : MonoBehaviour {
         staticInstance = null;
     }
 
-    #region Fields
     public int numOfRows;
     public int numOfColumns;
     public float gridCellSize;
@@ -35,7 +34,6 @@ public class GridManager : MonoBehaviour {
     public bool showObstacleBlocks = true;
 
     public Node[,] nodes { get; set; }
-    #endregion
 
     //Origin of the grid manager
     public Vector3 Origin {

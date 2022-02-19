@@ -2,13 +2,11 @@ using UnityEngine;
 using System;
 
 public class Node {
-    #region Fields
     public float costSoFar;         //Total cost so far for the node
     public float fScore;         //Estimated cost from this node to the goal node
     public bool isObstacle;              //Does the node is an obstacle or not
     public Node parent;                 //Parent of the node in the linked list
     public Vector3 position;            //Position of the node
-    #endregion
 
     /// <summary>
     //Constructor with adding position to the node creation
@@ -37,5 +35,3 @@ public class Node {
         return HashCode.Combine(position);
     }
 }
-
-

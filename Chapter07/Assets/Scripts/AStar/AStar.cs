@@ -46,8 +46,6 @@ public class AStar {
 
             var neighbours = GridManager.instance.GetNeighbours(node);
 
-            #region CheckNeighbours
-
             //Get the Neighbours
             foreach (Node neighbourNode in neighbours) {
                 if (!closedList.Contains(neighbourNode)) {
@@ -69,8 +67,6 @@ public class AStar {
                     
                 }
             }
-
-            #endregion
 
             closedList.Add(node);
         }
