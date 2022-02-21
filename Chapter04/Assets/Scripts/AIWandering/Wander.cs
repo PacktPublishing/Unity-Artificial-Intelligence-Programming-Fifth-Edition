@@ -45,7 +45,7 @@ public class Wander : MonoBehaviour
         Quaternion tarRot = Quaternion.LookRotation(tarPos - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, tarRot, rotSpeed * Time.deltaTime);
 
-        transform.Translate(new Vector3(0, 0, movementSpeed * Time.deltaTime));
+        transform.Translate(new Vector3(0f, 0f, movementSpeed * Time.deltaTime));
 	}
 
     void GetNextPosition()

@@ -62,9 +62,9 @@ public class Sight : Sense
         Vector3 frontRayPoint = transform.position + (transform.forward * ViewDistance);
 
         //Approximate perspective visualization
-        Vector3 leftRayPoint = Quaternion.Euler(0,FieldOfView * 0.5f ,0) * frontRayPoint;
+        Vector3 leftRayPoint = Quaternion.Euler(0f ,FieldOfView * 0.5f, 0f) * frontRayPoint;
 
-        Vector3 rightRayPoint = Quaternion.Euler(0, - FieldOfView*0.5f, 0) *  frontRayPoint;
+        Vector3 rightRayPoint = Quaternion.Euler(0f, - FieldOfView*0.5f, 0f) *  frontRayPoint;
 
         Debug.DrawLine(transform.position, frontRayPoint, Color.green);
         Debug.DrawLine(transform.position, leftRayPoint, Color.green);

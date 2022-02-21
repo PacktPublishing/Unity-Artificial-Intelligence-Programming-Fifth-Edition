@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerTank : MonoBehaviour 
 {
@@ -11,12 +12,12 @@ public class PlayerTank : MonoBehaviour
     private float rotSpeed = 2.0f;
 
     [SerializeField]
-    private float targerReactionRadius = 5.0f;
+    private float targetReactionRadius = 5.0f;
 	
 	// Update is called once per frame
 	void Update () 
     {
-        if(Vector3.Distance(transform.position, targetTransform.position) < targerReactionRadius)
+        if(Vector3.Distance(transform.position, targetTransform.position) < targetReactionRadius)
             return;
 
         Vector3 tarPos = targetTransform.position;

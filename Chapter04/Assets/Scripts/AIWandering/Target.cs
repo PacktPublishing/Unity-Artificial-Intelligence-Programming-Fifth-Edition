@@ -14,9 +14,8 @@ public class Target : MonoBehaviour
         if(Input.GetMouseButtonDown(button)) 
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hitInfo;
 
-            if (Physics.Raycast(ray.origin, ray.direction, out hitInfo)) 
+            if (Physics.Raycast(ray.origin, ray.direction, out var hitInfo)) 
             {
                 Vector3 targetPosition = hitInfo.point;
                 transform.position = targetPosition + new Vector3(0.0f, hOffset, 0.0f);
