@@ -13,7 +13,7 @@ public class DiceGameLoaded : MonoBehaviour {
         Debug.Log("Throwing dice...");
 
         int randomProbability = Random.Range(0, 100);
-        int diceResult = 0;
+        int diceResult;
         if (randomProbability < 35) {
             diceResult = 6;
         } else {

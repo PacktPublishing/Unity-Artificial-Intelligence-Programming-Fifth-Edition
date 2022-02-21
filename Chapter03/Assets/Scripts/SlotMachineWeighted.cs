@@ -19,9 +19,9 @@ public class SlotMachineWeighted : MonoBehaviour {
     public InputField inputBet;
 
     private bool startSpin = false;
-	private bool firstReelSpinned = false;
-	private bool secondReelSpinned = false;
-	private bool thirdReelSpinned = false;
+	private bool firstReelSpun = false;
+	private bool secondReelSpun = false;
+	private bool thirdReelSpun = false;
 	
 	private int betAmount = 100;
     private int credits = 1000;
@@ -113,25 +113,25 @@ public class SlotMachineWeighted : MonoBehaviour {
 		if (startSpin) {
 			elapsedTime += Time.deltaTime;
 			int randomSpinResult = UnityEngine.Random.Range(0, numberOfSym);
-			if (!firstReelSpinned) {
+			if (!firstReelSpun) {
 				firstReel.text = randomSpinResult.ToString();
 				if (elapsedTime >= spinDuration) {
 					int weightedRandom = PickNumber();
                     firstReel.text = weightedRandom.ToString();
 					firstReelResult = weightedRandom;
-					firstReelSpinned = true;
+					firstReelSpun = true;
 					elapsedTime = 0;
 				}
 			}
-			else if (!secondReelSpinned) {
+			else if (!secondReelSpun) {
 				secondReel.text = randomSpinResult.ToString();
 				if (elapsedTime >= spinDuration) {
 					secondReelResult = randomSpinResult;
-					secondReelSpinned = true;
+					secondReelSpun = true;
 					elapsedTime = 0;
 				}
 			}
-			else if (!thirdReelSpinned) {
+			else if (!thirdReelSpun) {
 				thirdReel.text = randomSpinResult.ToString();
 				if (elapsedTime >= spinDuration) {						
 					if ((firstReelResult == secondReelResult) &&
@@ -157,8 +157,8 @@ public class SlotMachineWeighted : MonoBehaviour {
 					
 					startSpin = false;
 					elapsedTime = 0;
-					firstReelSpinned = false;
-					secondReelSpinned = false;
+					firstReelSpun = false;
+					secondReelSpun = false;
 					
 					checkBet();
 				}
