@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Debug = System.Diagnostics.Debug;
 
 public class UnityFlock : MonoBehaviour 
 {
@@ -40,7 +41,7 @@ public class UnityFlock : MonoBehaviour
 	    transformComponent = transform;
 
         //Temporary components
-        Component[] tempFlocks= null;
+        UnityFlock[] tempFlocks= null;
 
         //Get all the unity flock components from the parent transform in the group
         if (transform.parent)
@@ -49,13 +50,14 @@ public class UnityFlock : MonoBehaviour
         }
 
         //Assign and store all the flock objects in this group
-	    objects = new Transform[tempFlocks.Length];
+        Debug.Assert(tempFlocks != null, nameof(tempFlocks) + " != null");
+        objects = new Transform[tempFlocks.Length];
         otherFlocks = new UnityFlock[tempFlocks.Length];
 
 	    for(int i = 0;i<tempFlocks.Length;i++)
 	    {
 		    objects[i] = tempFlocks[i].transform;
-		    otherFlocks[i] = (UnityFlock)tempFlocks[i];
+		    otherFlocks[i] = tempFlocks[i];
 	    }
 
         //Null Parent as the flock leader will be UnityFlockController object
