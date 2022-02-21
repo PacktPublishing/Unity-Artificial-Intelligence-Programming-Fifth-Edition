@@ -315,7 +315,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167647082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000004807046, y: -0.0000038146973, z: 35.938717}
+  m_LocalPosition: {x: -0, y: -0, z: 71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -878,7 +878,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893850310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000004807046, y: -0.0000038146973, z: 35.938717}
+  m_LocalPosition: {x: 0, y: -0, z: 69.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -993,7 +993,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087279098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000004807046, y: -0.0000038146973, z: 35.938717}
+  m_LocalPosition: {x: 0, y: -0, z: 72.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1159,7 +1159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166164534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000004807046, y: -0.0000038146973, z: 35.938717}
+  m_LocalPosition: {x: 0, y: -0, z: 67.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1516,8 +1516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd347f342048a243a8a0b2cdc5c6101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 100000, guid: 9b9d4461862db974fb79e91eb8effac8, type: 3}
-  Turret: {fileID: 2097528027}
+  bullet: {fileID: 0}
+  turret: {fileID: 0}
   bulletSpawnPoint: {fileID: 1735545919}
   curSpeed: 0
   targetSpeed: 0
@@ -1943,12 +1943,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096583075}
   m_Mesh: {fileID: 4300000, guid: 3b5461183692b0645a15b390d9ff0637, type: 3}
---- !u!1 &2097528027 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100002, guid: 1ae11e12b4123d6449de94743bba98eb,
-    type: 3}
-  m_PrefabInstance: {fileID: 1744113059}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2140658930
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,13 +1,14 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Serialization;
 
 public class AutoDestruct : MonoBehaviour
 {
     [SerializeField]
-    public float DestructTime = 2.0f;
+    public float destructTime = 2.0f;
 
     void Start()
     {
-        Destroy(gameObject, DestructTime);
+        Destroy(gameObject, destructTime);
     }
 }
