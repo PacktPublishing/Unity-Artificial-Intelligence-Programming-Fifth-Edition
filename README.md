@@ -4,7 +4,7 @@
 
 This is the code repository for [Unity Artificial Intelligence Programming - Fifth Edition](https://www.packtpub.com/product/unity-artificial-intelligence-programming-fifth-edition/9781803238531), published by Packt.
 
-**Add powerful, believable, and fun AI entities in your game with the power of Unity 2021**
+**Add powerful, believable, and fun AI entities in your game with the power of Unity**
 
 ## What is this book about?
 Developing artificial intelligence (AI) for game characters in Unity 2021 has never been easier. Unity provides game and app developers with a variety of tools to implement AI, from basic techniques to cutting-edge machine learning-powered agents. Leveraging these tools via Unity's API or built-in features allows limitless possibilities when it comes to creating game worlds and characters.
