@@ -39,12 +39,11 @@ void OnCollisionEnter(Collision collision)
 This Unity artificial intelligence book is for Unity developers with a basic understanding of C# and the Unity Editor who want to expand their knowledge of AI Unity game development.
 
 With the following software and hardware list you can run all code files present in the book (Chapter 1-12).
-2
 ### Software and Hardware List
 
 | Chapter  | Software required                   | OS required                        |
 | -------- | ------------------------------------| -----------------------------------|
-| 1        | Unity3d 2022                   | Windows, Mac OS X, and Linux (Any) |
+| 1-12       | Unity3d 2022                   | Windows, Mac OS X, and Linux (Any) |
 
 
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://static.packt-cdn.com/downloads/9781803238531_ColorImages.pdf).
